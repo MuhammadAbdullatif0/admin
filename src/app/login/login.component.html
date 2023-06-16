@@ -1,0 +1,42 @@
+<div class="page" fxLayoutAlign="center center">
+    <mat-card class="mat-elevation-z12" fxFlex.sm="80%" fxFlex.xs="100%">
+        <mat-card-title style="text-align:center;" fxLayoutGap="10px">
+            <img style="width: 100%;" src="assets\WhatsApp Image 2023-02-24 at 10.23.44 AM.jpeg" alt="">
+
+        </mat-card-title>
+        <mat-tab-group mat-stretch-tabs animationDuration="400ms" color="primary">
+            <mat-tab label="Sign In">
+                <mat-card-content>
+                    <form #log="ngForm" (ngSubmit)="login(log)">
+                        <mat-form-field>
+                            <mat-label>Email</mat-label>
+                            <input matInput placeholder="Email" email required name="email" ngModel #email="ngModel">
+                            <mat-error *ngIf="email.errors?.['required']">Email is required</mat-error>
+                            <mat-error *ngIf="email.invalid">Email is Invalid</mat-error>
+                            <mat-icon matSuffix>email</mat-icon>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label>Password</mat-label>
+                            <input matInput placeholder="Password" type="password" required minlength="6"
+                                name="password" ngModel #password="ngModel">
+                            <mat-error *ngIf="password.errors && password.hasError('required')">
+                                Password is required
+                            </mat-error>
+                            <mat-error *ngIf="password.errors && password.errors?.['minlength']">
+                                Password must be of length 6
+                            </mat-error>
+                            <mat-icon matSuffix>lock</mat-icon>
+                        </mat-form-field>
+                        <mat-checkbox color="primary" name="Remember"><span class="remember">Remember Me!
+                            </span></mat-checkbox>
+                        <button mat-raised-button style="background-color: #754617;" class="login-button">
+                            <!-- [disabled]="f.invalid"> -->
+                            <span style="color: white;">Sign In</span>
+                        </button>
+
+                    </form>
+                </mat-card-content>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+</div>

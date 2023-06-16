@@ -1,0 +1,42 @@
+<!-- ================ Order Details List ================= -->
+<div class="details">
+    <div class="recentOrders">
+        <div class="cardHeader">
+            <h2>Recent Orders</h2>
+
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+
+                    <td>OrderID</td>
+                    <td>Order Date</td>
+                    <td>Total price</td>
+                    <td>deliveryMethod</td>
+                    <td>order Items</td>
+                    <td>Status</td>
+                    <td>Check Order</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of orderInfo">
+
+
+                    <td>#{{item.id}}</td>
+                    <td>{{item.orderDate | date: 'medium'}}</td>
+                    <td>{{item.subtotal | currency}}</td>
+                    <td>{{item.deliveryMethod}}</td>
+                    <td>{{item.orderItems.length}}</td>
+                    <td>{{item.status}}</td>
+                   <td><button class="button" routerLink="/orders/{{item.id}}">Check</button></td>
+                </tr>
+
+               
+
+            </tbody>
+        </table>
+    </div>
+
+    <!-- ================= New Customers ================ -->
+</div>

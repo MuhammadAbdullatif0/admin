@@ -1,0 +1,31 @@
+<h1 mat-dialog-title fxLayoutAlign="center center">Update item</h1>
+
+<div mat-dialog-content class="parent">
+    <div class="child">
+        <form #f="ngForm">
+            <mat-form-field appearance="fill">
+                <mat-label>Title</mat-label>
+                <input matInput  #name [value]="product?.name">
+            </mat-form-field>
+            <mat-form-field appearance="fill" floatLabel="always">
+                <mat-label>Price</mat-label>
+                <input matInput type="number"  #price placeholder="0" [value]="product?.price">
+                <span matTextPrefix>$&nbsp;</span>
+                <span matTextSuffix>.00</span>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+                <mat-label> Description </mat-label>
+                <textarea matInput  #desc [value]="product?.description"></textarea>
+            </mat-form-field>
+            
+            <img style="width: 100px;" src="{{product?.imgUrl}}" alt="">
+            <input style="margin-left: 30px;" type="file" (change)="onSelect($event)" >
+            <div mat-dialog-actions fxLayoutAlign="center center">
+                <button mat-raised-button cdkFocusInitial  type="submit" color="primary"
+                (click)="update(name.value , price.value , desc.value)" >Update</button>
+                <button mat-raised-button cdkFocusInitial mat-dialog-close type="submit" color="accent">Cancel</button>
+            </div>
+        </form>
+    </div>
+
+</div>
